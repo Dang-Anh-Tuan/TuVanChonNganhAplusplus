@@ -1,6 +1,5 @@
 package tvnh.entity;
 
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -12,18 +11,16 @@ public class NganhDaoTao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-    private String ten;
-    private int diemchuan;
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "nganh_id", referencedColumnName = "id")
     private Nganh nganh;
     
-    @ManyToMany
-    @JoinTable(name = "truong_nganhdaotao", joinColumns = @JoinColumn(name = "nganhdt_id"))
-    private Set<Truong> truong;
+    @ManyToOne
+    @JoinColumn(name = "truong_id", referencedColumnName = "id")
+    private Truong truong;
     
-    @ManyToMany
-	@JoinTable(name = "nguoidung_nganhdaotao", joinColumns = @JoinColumn(name = "nganhdt_id"))
-	private Set<NguoiDung> nguoiDung;
+    @OneToOne
+    @JoinColumn(name = "diem_thi_id", referencedColumnName = "id")
+    private DiemThi diemThi;
 }

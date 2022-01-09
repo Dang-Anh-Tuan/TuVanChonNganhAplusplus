@@ -14,7 +14,6 @@ public class Truong {
 	private Integer id;
 	private String ten;
 	
-	@ManyToMany
-	@JoinTable(name = "truong_nganhdaotao", joinColumns = @JoinColumn(name = "truong_id"))
+	@OneToMany(mappedBy = "truong")
 	private Set<NganhDaoTao> nganhDaoTao;
 }

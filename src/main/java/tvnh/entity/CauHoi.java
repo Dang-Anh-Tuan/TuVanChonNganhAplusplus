@@ -12,9 +12,9 @@ public class CauHoi {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String cauhoi;
-    private boolean trangthai;
+	private String cauHoi;
+    private boolean trangThai;
     
-    @OneToMany(targetEntity = TraLoi.class, mappedBy = "cauHoi")
+    @OneToMany(mappedBy = "cauHoi")
     private Set<TraLoi> traLoi;
 }

@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 import lombok.Data;
+import tvnh.entity.enums.Khoi;
 
 @Entity
 @Data
@@ -12,26 +13,23 @@ public class BanGhi {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Enumerated(EnumType.STRING)
+	private Khoi khoi;
 	
-	
-	@ManyToOne(targetEntity = ThuNhap.class)
-	@JoinColumn(name = "thunhap_id", referencedColumnName = "id")
-    private ThuNhap thuNhap;
-	
-	@ManyToOne(targetEntity = Khoi.class)
-	@JoinColumn(name = "khoi_id", referencedColumnName = "id")
-    private Khoi khoi;
-	
-	@ManyToMany
-	@JoinTable(name = "banghi_thongminh", joinColumns = @JoinColumn(name = "banghi_id"))
-	private Set<ThongMinh> thongminh;
-	
-	@ManyToMany
-	@JoinTable(name = "banghi_tinhcach", joinColumns = @JoinColumn(name = "banghi_id"))
-	private Set<TinhCach> tinhcach;
-	
-	@ManyToOne(targetEntity = Nganh.class)
+	@ManyToOne
 	@JoinColumn(name = "nganh_id", referencedColumnName = "id")
-    private Nganh nganh;
+	private Nganh nganh;
+	
+	@ManyToMany
+	@JoinTable(name = "ban_ghi_thong_minh",
+			   joinColumns = @JoinColumn(name = "ban_ghi_id"),
+			   inverseJoinColumns = @JoinColumn(name = "thong_minh_id"))
+	private Set<ThongMinh> thongMinh;
+	
+	@ManyToMany
+	@JoinTable(name = "ban_ghi_tinh_cach",
+			   joinColumns = @JoinColumn(name = "ban_ghi_id"),
+			   inverseJoinColumns = @JoinColumn(name = "tinh_cach_id"))
+	private Set<TinhCach> tinhCach;
 	
 }

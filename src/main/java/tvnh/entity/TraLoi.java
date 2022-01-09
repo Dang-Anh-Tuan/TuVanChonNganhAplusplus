@@ -12,21 +12,15 @@ public class TraLoi {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String traloi;
+	private String traLoi;
    
-	@ManyToOne(targetEntity = CauHoi.class)
+	@ManyToOne
     @JoinColumn(name = "cauHoi_id", referencedColumnName = "id")
     private CauHoi cauHoi;
 	
-	@ManyToMany
-	@JoinTable(name = "nguoidung_traloi", joinColumns = @JoinColumn(name = "traloi_id"))
-	private Set<NguoiDung> nguoiDung;
-	
-	@ManyToMany
-	@JoinTable(name = "chisotinhcach_traloi", joinColumns = @JoinColumn(name = "traloi_id"))
+	@OneToMany(mappedBy = "traLoi")
 	private Set<ChiSoTinhCach> chiSoTinhCach;
 	
-	@ManyToMany
-	@JoinTable(name = "chisothongminh_traloi", joinColumns = @JoinColumn(name = "traloi_id"))
+	@OneToMany(mappedBy = "traLoi")
 	private Set<ChiSoThongMinh> chiSoThongMinh;
 }

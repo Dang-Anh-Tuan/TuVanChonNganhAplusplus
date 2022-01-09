@@ -1,6 +1,5 @@
 package tvnh.entity;
 
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -12,13 +11,13 @@ public class ChiSoThongMinh {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; 
-    private int chiso;
+    private Integer chiSo;
     
-    @ManyToOne(targetEntity = ThongMinh.class)
-    @JoinColumn(name = "thongminh_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "thong_minh_id", referencedColumnName = "id")
     private ThongMinh thongMinh;
     
-    @ManyToMany
-	@JoinTable(name = "chisothongminh_traloi", joinColumns = @JoinColumn(name = "chisothongminh_id"))
-	private Set<TraLoi> traLoi;
+    @ManyToOne
+    @JoinColumn(name = "tra_loi_id", referencedColumnName = "id")
+	private TraLoi traLoi;
 }

@@ -15,14 +15,9 @@ public class ThongMinh {
 	private String ten;
     private String mota;
     
-    @OneToMany(targetEntity = ChiSoThongMinh.class, mappedBy = "thongMinh")
+    @OneToMany(mappedBy = "thongMinh")
     private Set<ChiSoThongMinh> chiSoThongMinh;
-    
-    @ManyToMany
-	@JoinTable(name = "nguoidung_thongminh", joinColumns = @JoinColumn(name = "thongminh_id"))
-	private Set<NguoiDung> nguoiDung;
-    
-    @ManyToMany
-	@JoinTable(name = "banghi_thongminh", joinColumns = @JoinColumn(name = "thongminh_id"))
-	private Set<BanGhi> banGhi;
+   
+    @ManyToMany(mappedBy = "thongMinh")
+    private Set<BanGhi> banGhi;
 }
