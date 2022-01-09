@@ -15,7 +15,9 @@ public class Nganh {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
     private String ten;
+    @Enumerated(EnumType.ORDINAL)
     private XuHuong xuHuong;
+    @Enumerated(EnumType.ORDINAL)
     private ThuNhap thuNhap;
     
     @OneToMany(mappedBy = "nganh")
