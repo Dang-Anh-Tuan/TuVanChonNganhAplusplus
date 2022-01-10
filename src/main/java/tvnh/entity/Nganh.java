@@ -1,13 +1,20 @@
 package tvnh.entity;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import tvnh.entity.enums.ThuNhap;
 import tvnh.entity.enums.XuHuong;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 public class Nganh {
@@ -21,8 +28,10 @@ public class Nganh {
     private ThuNhap thuNhap;
     
     @OneToMany(mappedBy = "nganh")
-    private Set<NganhDaoTao> nganhDaoTao;
+    @JsonIgnore
+    private List<NganhDaoTao> nganhDaoTao = new ArrayList<>();
     
     @OneToMany(mappedBy = "nganh")
-    private Set<BanGhi> banGhi;
+    @JsonIgnore
+    private List<BanGhi> banGhi = new ArrayList<>();
 }

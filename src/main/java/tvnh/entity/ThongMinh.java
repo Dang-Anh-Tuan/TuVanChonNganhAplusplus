@@ -1,11 +1,17 @@
 package tvnh.entity;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Entity
 @Data
 public class ThongMinh {
@@ -16,8 +22,10 @@ public class ThongMinh {
     private String mota;
     
     @OneToMany(mappedBy = "thongMinh")
-    private Set<ChiSoThongMinh> chiSoThongMinh;
+    @JsonIgnore
+    private List<ChiSoThongMinh> chiSoThongMinh = new ArrayList<>();
    
     @ManyToMany(mappedBy = "thongMinh")
-    private Set<BanGhi> banGhi;
+    @JsonIgnore
+    private List<BanGhi> banGhi = new ArrayList<>();
 }

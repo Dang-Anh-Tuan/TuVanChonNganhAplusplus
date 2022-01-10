@@ -2,9 +2,13 @@ package tvnh.entity;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import tvnh.entity.enums.Khoi;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 public class DiemThi {

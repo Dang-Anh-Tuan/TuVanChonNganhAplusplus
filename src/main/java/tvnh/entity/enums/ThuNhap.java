@@ -1,9 +1,9 @@
 package tvnh.entity.enums;
 
 public enum ThuNhap {
-	THAP("thap", 1),
-	TRUNGBINH("trung binh", 2),
-	CAO("cao", 3);
+	THAP("thap", 0),
+	TRUNGBINH("trung binh", 1),
+	CAO("cao", 2);
 	private String name;
 	private Integer value;
 	

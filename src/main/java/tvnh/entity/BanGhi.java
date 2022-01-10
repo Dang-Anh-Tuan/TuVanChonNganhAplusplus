@@ -1,12 +1,18 @@
 package tvnh.entity;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import tvnh.entity.enums.Khoi;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Entity
 @Data
 public class BanGhi {
@@ -24,12 +30,14 @@ public class BanGhi {
 	@JoinTable(name = "ban_ghi_thong_minh",
 			   joinColumns = @JoinColumn(name = "ban_ghi_id"),
 			   inverseJoinColumns = @JoinColumn(name = "thong_minh_id"))
-	private Set<ThongMinh> thongMinh;
+	@JsonIgnore
+	private List<ThongMinh> thongMinh = new ArrayList<>();
 	
 	@ManyToMany
 	@JoinTable(name = "ban_ghi_tinh_cach",
 			   joinColumns = @JoinColumn(name = "ban_ghi_id"),
 			   inverseJoinColumns = @JoinColumn(name = "tinh_cach_id"))
-	private Set<TinhCach> tinhCach;
+	@JsonIgnore
+	private List<TinhCach> tinhCach = new ArrayList<>();
 	
 }

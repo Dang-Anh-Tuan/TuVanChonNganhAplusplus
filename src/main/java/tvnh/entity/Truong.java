@@ -1,9 +1,11 @@
 package tvnh.entity;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Entity
@@ -15,5 +17,6 @@ public class Truong {
 	private String ten;
 	
 	@OneToMany(mappedBy = "truong")
-	private Set<NganhDaoTao> nganhDaoTao;
+	@JsonIgnore
+	private List<NganhDaoTao> nganhDaoTao = new ArrayList<>();
 }

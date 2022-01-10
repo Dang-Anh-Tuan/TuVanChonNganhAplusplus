@@ -1,10 +1,10 @@
 package tvnh.entity.enums;
 
 public enum Khoi {
-	A("Khoi A"),
-	B("Khoi B"),
-	C("Khoi C"),
-	D("Khoi D");
+	A("A"),
+	B("B"),
+	C("C"),
+	D("D");
 	
 	private String name;
 	

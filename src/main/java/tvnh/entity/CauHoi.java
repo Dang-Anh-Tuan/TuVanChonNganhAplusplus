@@ -1,11 +1,18 @@
 package tvnh.entity;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import javax.persistence.*;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Entity
 @Data
 public class CauHoi {
@@ -16,5 +23,6 @@ public class CauHoi {
     private boolean trangThai;
     
     @OneToMany(mappedBy = "cauHoi")
-    private Set<TraLoi> traLoi;
+    @JsonIgnore
+    private List<TraLoi> traLoi = new ArrayList<>();
 }
