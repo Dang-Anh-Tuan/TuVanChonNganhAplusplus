@@ -21,4 +21,20 @@ public class NganhDaoTaoServiceImpl implements NganhDaoTaoService{
 		return repo.findAll();
 	}
 
+	@Override
+	public boolean save(NganhDaoTao nganhDaoTao) {
+		repo.save(nganhDaoTao);
+		return true;
+	}
+
+	@Override
+	public List<NganhDaoTao> getByTruong(Integer idTruong) {
+		return repo.findByTruong(idTruong);
+	}
+
+	@Override
+	public List<NganhDaoTao> getByNganh(Integer idNganh) {
+		return repo.findByNganh(idNganh);
+	}
+
 }

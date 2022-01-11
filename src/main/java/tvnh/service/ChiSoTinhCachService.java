@@ -6,4 +6,6 @@ import tvnh.entity.ChiSoTinhCach;
 
 public interface ChiSoTinhCachService {
 	List<ChiSoTinhCach> getAll();
+	
+	ChiSoTinhCach save(ChiSoTinhCach chiSoTinhCach);
 }

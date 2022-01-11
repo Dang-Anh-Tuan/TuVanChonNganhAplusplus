@@ -21,4 +21,9 @@ public class ThongMinhServiceImpl implements ThongMinhService{
 		return repo.findAll();
 	}
 
+	@Override
+	public ThongMinh getById(Integer id) {
+		return repo.findById(id).get();
+	}
+
 }

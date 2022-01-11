@@ -6,4 +6,6 @@ import tvnh.entity.BanGhi;
 
 public interface BanGhiService {
 	List<BanGhi> getAll();
+	
+	boolean save(BanGhi banGhi);
 }

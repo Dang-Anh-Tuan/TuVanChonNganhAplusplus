@@ -21,4 +21,15 @@ public class NganhServiceImpl implements NganhService{
 		return repo.findAll();
 	}
 
+	@Override
+	public boolean update(Nganh nganh) {
+		repo.save(nganh);
+		return true;
+	}
+
+	@Override
+	public Nganh getById(Integer id) {
+		return repo.findById(id).get();
+	}
+
 }

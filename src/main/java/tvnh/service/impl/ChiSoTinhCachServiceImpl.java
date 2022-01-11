@@ -21,4 +21,9 @@ public class ChiSoTinhCachServiceImpl implements ChiSoTinhCachService{
 		return repo.findAll();
 	}
 
+	@Override
+	public ChiSoTinhCach save(ChiSoTinhCach chiSoTinhCach) {
+		return repo.save(chiSoTinhCach);
+	}
+
 }

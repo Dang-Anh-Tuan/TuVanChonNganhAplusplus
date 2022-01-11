@@ -6,4 +6,6 @@ import tvnh.entity.ThongMinh;
 
 public interface ThongMinhService {
 	List<ThongMinh> getAll();
+	
+	ThongMinh getById(Integer id);
 }

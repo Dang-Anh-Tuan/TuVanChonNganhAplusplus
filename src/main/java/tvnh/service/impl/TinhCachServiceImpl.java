@@ -22,4 +22,9 @@ public class TinhCachServiceImpl implements TinhCachService{
 		return repo.findAll();
 	}
 
+	@Override
+	public TinhCach getById(Integer id) {
+		return repo.findById(id).get();
+	}
+
 }

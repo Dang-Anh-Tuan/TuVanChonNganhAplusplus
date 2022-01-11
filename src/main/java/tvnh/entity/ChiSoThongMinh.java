@@ -3,11 +3,8 @@ package tvnh.entity;
 
 import javax.persistence.*;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Entity
 @Data
 public class ChiSoThongMinh {

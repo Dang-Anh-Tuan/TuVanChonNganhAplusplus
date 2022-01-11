@@ -21,4 +21,9 @@ public class ChiSoThongMinhServiceImpl implements ChiSoThongMinhService{
 		return repo.findAll();
 	}
 
+	@Override
+	public ChiSoThongMinh save(ChiSoThongMinh chiSoThongMinh) {
+		return repo.save(chiSoThongMinh);
+	}
+
 }

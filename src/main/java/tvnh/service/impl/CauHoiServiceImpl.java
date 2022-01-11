@@ -21,4 +21,22 @@ public class CauHoiServiceImpl implements CauHoiService{
 		return repo.findAll();
 	}
 
+	@Override
+	public boolean update(CauHoi cauHoi) {
+		repo.save(cauHoi);
+		return true;
+	}
+
+	@Override
+	public CauHoi getById(Integer id) {
+		return repo.findById(id).get();
+	}
+
+	@Override
+	public CauHoi save(CauHoi cauHoi) {
+		return repo.save(cauHoi);
+	}
+	
+	
+
 }

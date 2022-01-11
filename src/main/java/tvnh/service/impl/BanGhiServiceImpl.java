@@ -22,4 +22,10 @@ public class BanGhiServiceImpl implements BanGhiService{
 		return repo.findAll();
 	}
 
+	@Override
+	public boolean save(BanGhi banGhi) {
+		repo.save(banGhi);
+		return true;
+	}
+
 }

@@ -1,9 +1,6 @@
 package tvnh.web.api;
 
 import java.util.List;
-import java.util.Set;
-
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import tvnh.entity.NganhDaoTao;
 import tvnh.entity.Truong;
 import tvnh.service.TruongService;
 

@@ -6,4 +6,6 @@ import tvnh.entity.ChiSoThongMinh;
 
 public interface ChiSoThongMinhService {
 	List<ChiSoThongMinh> getAll();
+	
+	ChiSoThongMinh save(ChiSoThongMinh chiSoThongMinh);
 }
