@@ -6,4 +6,5 @@ import lombok.Data;
 public class ChiSoTinhCachInput {
 	Integer idTinhCach;
 	Integer chiSo;
+	Integer idTraLoi;
 }

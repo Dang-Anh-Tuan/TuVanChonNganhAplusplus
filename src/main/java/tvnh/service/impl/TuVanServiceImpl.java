@@ -58,7 +58,7 @@ public class TuVanServiceImpl implements TuVanService{
 		System.out.println("-------------- SORT ---------------------");
 		thongKeSort.forEach((key, value) -> System.out.println(key.getId() + " " + value));
 		
-		BanGhi banGhiKetQua = (BanGhi)thongKeCBR.entrySet().iterator().next().getKey();
+		BanGhi banGhiKetQua = (BanGhi)thongKeSort.entrySet().iterator().next().getKey();
 		
 		//test
 		System.out.println("ID ban ghi ket qua : " + banGhiKetQua.getId());
