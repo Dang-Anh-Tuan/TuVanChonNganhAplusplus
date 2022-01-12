@@ -164,19 +164,24 @@ public class Logic {
 		
 		System.out.println("Input");
 		System.out.println("Xac dinh loai thong minh : ");
-		inputThongMinh.forEach(item -> System.out.println(item.getTen()));
+		inputThongMinh.forEach(item -> System.out.println(item.getTen() + "-" + item.getMota()));
 		System.out.println("Xac dinh loai tinh cach : ");
-		inputTinhCach.forEach(item -> System.out.println(item.getTen()));
+		inputTinhCach.forEach(item -> System.out.println(item.getTen() + "-" + item.getMota()));
 		System.out.println("Khoi : " + khoiInput.getName());
 		System.out.println("Xu huong : " + xuHuongInput.getTen());
 		System.out.println("Thu nhap : " + thuNhapInput.getName());
 		
 		
-		List<ThongMinh> banGhiThongMinh = banGhi.getThongMinh();
-		List<TinhCach> banGhiTinhCach = banGhi.getTinhCach();
-		
 		int soLuongThongMinh = 0;
 		int soLuongTinhCach = 0;
+		double thongMinhTuongUng = 0;
+		double tinhCachTuongUng = 0;
+		double xuHuongTuongUng = 0;
+		double khoiTuongUng = 0;
+		
+		List<ThongMinh> banGhiThongMinh = banGhi.getThongMinh();
+		List<TinhCach> banGhiTinhCach = banGhi.getTinhCach();
+			
 		
 		if(banGhiThongMinh.size() != 0) {
 			for(ThongMinh thongMinh : banGhiThongMinh) {
@@ -185,8 +190,7 @@ public class Logic {
 				}
 			}
 
-			double thongMinhTuongUng = (soLuongThongMinh / banGhiThongMinh.size()) * trongSoThongMinh;
-			System.out.println("Thong minh tuong ung : " + thongMinhTuongUng);
+			thongMinhTuongUng = (soLuongThongMinh / banGhiThongMinh.size()) * trongSoThongMinh;
 			result += thongMinhTuongUng;
 		}
 		
@@ -196,12 +200,10 @@ public class Logic {
 					soLuongTinhCach++;
 				}
 			}
-			double tinhCachTuongUng = (soLuongTinhCach / banGhiTinhCach.size()) * trongSoTinhCach;
-			System.out.println("Tinh cach tuong ung : " + tinhCachTuongUng);
+			
+			tinhCachTuongUng = (soLuongTinhCach / banGhiTinhCach.size()) * trongSoTinhCach;
 			result += tinhCachTuongUng;
-		}
-		
-		
+		}			
 		
 		System.out.println("BanGhi");
 		System.out.println("Thong minh : ");
@@ -215,30 +217,32 @@ public class Logic {
 		System.out.println("Thu nhap : " + banGhi.getNganh().getThuNhap().getName());
 		
 		
-		
 		if(banGhi.getNganh().getXuHuong() == xuHuongInput) {
-			double xuHuongTuongUng = 1 * trongSoXuHuong;
-			System.out.println("Xu huong tuong ung : " + xuHuongTuongUng);
+			xuHuongTuongUng = 1 * trongSoXuHuong;
 			result += xuHuongTuongUng;
 		}
 		
 		if(banGhi.getKhoi() == khoiInput) {
-			double khoiTuongUng =  1 * trongSoKhoi;
-			System.out.println("Khoi tuong ung : " + khoiTuongUng);
+			khoiTuongUng =  1 * trongSoKhoi;
 			result += khoiTuongUng;
-		}
+		}	
 		
 		double thuNhapTuongUng = (1 - Math.abs(thuNhapInput.getTrongSo() - banGhi.getNganh().getThuNhap().getTrongSo())) 
 				* trongSoThuNhap;
-		System.out.println("Thu nhap tuong ung : " + thuNhapTuongUng);
+		
 		result += thuNhapTuongUng;
 		
-		System.out.println("Tong do tuong ung * trong so : " + result);
 		
 		Integer tongTrongSo = trongSoThongMinh + trongSoTinhCach + trongSoThuNhap + trongSoXuHuong + trongSoKhoi;
 		
 		result /= tongTrongSo;
 		
+		System.out.println("Thong minh tuong ung : " + thongMinhTuongUng);
+		System.out.println("Tinh cach tuong ung : " + tinhCachTuongUng);
+		System.out.println("Xu huong tuong ung : " + xuHuongTuongUng);
+		System.out.println("Khoi tuong ung : " + khoiTuongUng);
+		System.out.println("Thu nhap tuong ung : " + thuNhapTuongUng);
+		System.out.println("Tong do tuong ung * trong so : " + result);
 		System.out.println("Tong trong so : " + tongTrongSo);
 		System.out.println("Ket qua : " + result);
 		System.out.println("-----------------------------------------------------------------------");
