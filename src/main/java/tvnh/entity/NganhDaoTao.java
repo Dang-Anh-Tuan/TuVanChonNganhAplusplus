@@ -15,6 +15,7 @@ public class NganhDaoTao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	private String ten;
     
     @ManyToOne
     @JoinColumn(name = "nganh_id", referencedColumnName = "id")
