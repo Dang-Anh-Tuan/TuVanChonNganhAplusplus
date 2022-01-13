@@ -11,9 +11,9 @@ import tvnh.entity.NganhDaoTao;
 
 @Repository
 public interface NganhDaoTaoRepo extends JpaRepository<NganhDaoTao, Integer>{
-	@Query(value = "SELECT * FROM tuvannganhhoc.nganh_dao_tao WHERE truong_id = :idTruong", nativeQuery = true)
+	@Query(value = "SELECT * FROM tuvannganhhoc1.nganh_dao_tao WHERE truong_id = :idTruong", nativeQuery = true)
 	List<NganhDaoTao> findByTruong(@RequestParam("idTruong") Integer idTruong);
 	
-	@Query(value = "SELECT * FROM tuvannganhhoc.nganh_dao_tao WHERE nganh_id = :idNganh", nativeQuery = true)
+	@Query(value = "SELECT * FROM tuvannganhhoc1.nganh_dao_tao WHERE nganh_id = :idNganh", nativeQuery = true)
 	List<NganhDaoTao> findByNganh(@RequestParam("idNganh") Integer idNganh);
 }

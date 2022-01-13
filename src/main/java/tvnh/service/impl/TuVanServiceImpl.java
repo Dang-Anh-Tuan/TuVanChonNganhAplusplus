@@ -98,6 +98,7 @@ public class TuVanServiceImpl implements TuVanService{
 			index++;
 		}
 		
+		
 		if (!flagOK) {
 			NganhDaoTao lastResult = nganhDaoTaos.get(nganhDaoTaos.size()-1);
 			result.setNganh(lastResult.getNganh());

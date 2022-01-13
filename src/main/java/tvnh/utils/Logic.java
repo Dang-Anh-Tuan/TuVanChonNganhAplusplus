@@ -59,7 +59,8 @@ public class Logic {
 			for (ChiSoThongMinh chiSoThongMinh : chiSoThongMinhs) {
 				ThongMinh thongMinh = chiSoThongMinh.getThongMinh();
 
-				Integer chiSo = thongKeChiSoThongMinh.containsKey(thongMinh) ? thongKeChiSoThongMinh.get(thongMinh) : 0;
+				Integer chiSo = 
+						thongKeChiSoThongMinh.containsKey(thongMinh) ? thongKeChiSoThongMinh.get(thongMinh) : 0;
 				chiSo += chiSoThongMinh.getChiSo();
 				thongKeChiSoThongMinh.put(thongMinh, chiSo);
 			}
@@ -172,8 +173,8 @@ public class Logic {
 		System.out.println("Thu nhap : " + thuNhapInput.getName());
 		
 		
-		int soLuongThongMinh = 0;
-		int soLuongTinhCach = 0;
+		double soLuongThongMinh = 0;
+		double soLuongTinhCach = 0;
 		double thongMinhTuongUng = 0;
 		double tinhCachTuongUng = 0;
 		double xuHuongTuongUng = 0;
