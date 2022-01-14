@@ -137,32 +137,9 @@ public class Logic {
 	}
 	
 	
-	public double CBR(BanGhi banGhi, TuVanInput tuVanInput) {
-		double result = 0;
-		
-		System.out.println("---------------------------CBR------------------------------");
-		
-		List<ThongMinh> inputThongMinh = xacDinhThongMinh(tuVanInput.getIdTraLois());
-		List<TinhCach> inputTinhCach = xacDinhTinhCach(tuVanInput.getIdTraLois());
-		
-		Khoi khoiInput = Khoi.valueOf(tuVanInput.getKhoi());
-		XuHuong xuHuongInput = XuHuong.valueOf(tuVanInput.getXuHuong());
-		
-		ThuNhap thuNhapInput;
-		Integer thuNhap = tuVanInput.getThuNhap();
-		if(thuNhap < 50000) {
-			thuNhapInput = ThuNhap.THAP;
-		}else if(thuNhap >= 50000 && thuNhap < 80000) {
-			thuNhapInput = ThuNhap.TRUNGBINH;
-		}else if(thuNhap >= 80000 && thuNhap < 100000 ) {
-			thuNhapInput = ThuNhap.KHA;
-		}else if(thuNhap >= 100000 && thuNhap < 150000) {
-			thuNhapInput = ThuNhap.KHACAO;
-		}else {
-			thuNhapInput = ThuNhap.CAO;
-		}
-		
-		
+	public double CBR(BanGhi banGhi, List<ThongMinh> inputThongMinh, List<TinhCach> inputTinhCach, Khoi khoiInput,
+			XuHuong xuHuongInput, ThuNhap thuNhapInput) {	
+		System.out.println("---------------------------CBR------------------------------");	
 		System.out.println("Input");
 		System.out.println("Xac dinh loai thong minh : ");
 		inputThongMinh.forEach(item -> System.out.println(item.getTen() + "-" + item.getMota()));
@@ -172,7 +149,7 @@ public class Logic {
 		System.out.println("Xu huong : " + xuHuongInput.getTen());
 		System.out.println("Thu nhap : " + thuNhapInput.getName());
 		
-		
+		double result = 0;
 		double soLuongThongMinh = 0;
 		double soLuongTinhCach = 0;
 		double thongMinhTuongUng = 0;
